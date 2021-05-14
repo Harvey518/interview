@@ -1,0 +1,16 @@
+version: "3"
+services:
+  docker-python-interview:
+    image: "python:3.7"
+    hostname: docker-python-interview
+    container_name: docker-python-interview
+    volumes:
+      - ../app:/myapp
+      - ../docker:/docker
+    ports:
+      - "8778:8778"
+    environment:
+      - TZ=Asia/Shanghai
+    command: bash /docker/run.sh
+    network_mode: bridge
+    restart: unless-stopped
